@@ -13,38 +13,26 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Requirements check
-      id: requirements-check
+    - name: Run Test
+      id: run-test
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Requirements check
-        setup-command: ''
-        command: pip install -r requirements.txt
+        test-name: Run Test
+        setup-command: pip install -r requirements.txt
+        command: pytest
         timeout: 10
-        max-score: 10
-    - name: 'Load Model Check '
-      id: load-model-check
-      uses: classroom-resources/autograding-command-grader@v1
+        max-score: 20
+    - name: pt
+      id: pt
+      uses: classroom-resources/autograding-python-grader@v1
       with:
-        test-name: 'Load Model Check '
-        setup-command: ''
-        command: python3 src/load_model.py
         timeout: 10
         max-score: 10
-    - name: Run Model Test
-      id: run-model-test
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: Run Model Test
-        setup-command: ''
-        command: python3 src/run_model.py
-        timeout: 10
-        max-score: 10
+        setup-command: pip install -r requirments.txt
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        REQUIREMENTS-CHECK_RESULTS: "${{steps.requirements-check.outputs.result}}"
-        LOAD-MODEL-CHECK_RESULTS: "${{steps.load-model-check.outputs.result}}"
-        RUN-MODEL-TEST_RESULTS: "${{steps.run-model-test.outputs.result}}"
+        RUN-TEST_RESULTS: "${{steps.run-test.outputs.result}}"
+        PT_RESULTS: "${{steps.pt.outputs.result}}"
       with:
-        runners: requirements-check,load-model-check,run-model-test
+        runners: run-test,pt
