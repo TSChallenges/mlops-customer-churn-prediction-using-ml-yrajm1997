@@ -16,7 +16,7 @@ def load_model():
 
 def get_customer_input():
     credit_score = float(input("Enter credit score: "))
-    # Add other fields as necessary
+    # ENTER YOUR CODE HERE
     return [[credit_score]]
 
 def predict_churn(model, customer_data):
