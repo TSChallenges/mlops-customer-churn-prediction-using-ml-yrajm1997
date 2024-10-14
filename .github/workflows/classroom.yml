@@ -22,9 +22,17 @@ jobs:
         command: pytest
         timeout: 10
         max-score: 20
+    - name: pt
+      id: pt
+      uses: classroom-resources/autograding-python-grader@v1
+      with:
+        timeout: 10
+        max-score: 10
+        setup-command: pip install -r requirments.txt
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         RUN-TEST_RESULTS: "${{steps.run-test.outputs.result}}"
+        PT_RESULTS: "${{steps.pt.outputs.result}}"
       with:
-        runners: run-test
+        runners: run-test,pt
