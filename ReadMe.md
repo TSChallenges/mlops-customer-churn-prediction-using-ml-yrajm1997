@@ -8,27 +8,37 @@ In this challenge, you will deploy a pre-trained machine learning model to predi
 
 ## Task Breakdown
 
-### Task 1: Load the Pre-Trained Model (10 Points)
+### Task 1: Load the Pre-Trained Model (5 Points)
 
 - Write a Python script (`load_model.py` in the `src/` directory) to load the pre-trained model using `pickle`.
 - Ensure the model is loaded correctly from the `models/` directory, where the `churn_model.pkl` file is stored.
 
 ---
 
-### Task 2: Interactive Prediction (15 Points)
+### Task 2: Interactive Prediction (10 Points)
 
 - Implement a Python script (`run_model.py`) to prompt the user for customer data (e.g., credit score, age, balance, number of products, etc.).
 - Use the pre-trained model to predict whether the customer will churn based on the input values.
 
 ---
 
-### Task 3: Dockerize the Application (15 Points)
+### Task 3: Dockerize the Application (10 Points)
 
 - Create a `Dockerfile` that:
   1. Uses **Python 3.8 or later** as the base image.
   2. Copies the necessary files (model, scripts, etc.) into the container.
   3. Installs the required dependencies from `requirements.txt`.
   4. Runs the `run_model.py` script within the container.
+
+---
+
+### Task 4: Set Up CI/CD Pipeline with GitHub Actions (10 Points)
+
+- Configure a GitHub Actions workflow that:
+  1. Installs the dependencies.
+  2. Builds the Docker image.
+  3. Runs the container to execute the `run_model.py` script.
+- The workflow should be triggered whenever changes are pushed to the `main` branch.
 
 ---
 
