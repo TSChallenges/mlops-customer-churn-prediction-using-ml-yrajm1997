@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: # ENTER STWP 1
+    - name: # ENTER STEP 1
       uses: # ENTER COMMAND 1
 
     - name: 
