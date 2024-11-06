@@ -4,11 +4,25 @@
 
 In this challenge, you will deploy a pre-trained machine learning model to predict customer churn using the Bank Customer Churn Dataset. The provided model (`churn_model.pkl`) will be integrated into a pipeline for model loading, input collection, and prediction. You’ll also automate the process using Docker and GitHub Actions for CI/CD. GitHub Codespaces will help you set up, run, and test the project in a consistent environment.
 
----
+### Note the Repository Structure 
+
+Organize your project with the following structure (Note that the directory has sub directories and files in it ):
+
+```
+- models/              # Directory for storing the pre-trained model
+  - churn_model.pkl    # Pre-trained model pickle file
+- src/                 # Directory for deployment scripts
+  - run_model.py       # Script for interacting with the model
+- Dockerfile           # Docker configuration file
+- .github/workflows/   # CI/CD configuration files
+  - deploy.yml         # GitHub Actions workflow file
+- requirements.txt     # Python dependencies
+
+```
 
 ## Task Breakdown
 
-### Task 1: Load the Pre-Trained Model (5 Points)
+### Task 1: Load the Pre-Trained Model (10 Points)
 
 - Write a Python script (`load_model.py` in the `src/` directory) to load the pre-trained model using `pickle`.
 - Ensure the model is loaded correctly from the `models/` directory, where the `churn_model.pkl` file is stored.
@@ -52,25 +66,6 @@ To develop and test the project, use **GitHub Codespaces** as your development e
 4. Follow the project structure to implement each task and test your code directly within the Codespace.
 
 ---
-### Task 5: Set Up Repository Structure (5 Points)
-
-Organize your project with the following structure (Note that the directory has sub directories and files in it ):
-
-```
-- models/              # Directory for storing the pre-trained model
-  - churn_model.pkl    # Pre-trained model pickle file
-- src/                 # Directory for deployment scripts
-  - run_model.py       # Script for interacting with the model
-- Dockerfile           # Docker configuration file
-- .github/workflows/   # CI/CD configuration files
-  - deploy.yml         # GitHub Actions workflow file
-- requirements.txt     # Python dependencies
-
-```
-
----
-
----
 
 ## Submission Instructions
 
@@ -85,9 +80,9 @@ Organize your project with the following structure (Note that the directory has 
 
 ## Evaluation Criteria
 
-- **Model Loading (5 Points):** Ensure the pre-trained model is loaded correctly from the `models/` directory.
+- **Model Loading (10 Points):** Ensure the pre-trained model is loaded correctly from the `models/` directory.
 - **Interactive Prediction (10 Points):** The script should prompt for inputs and return a valid prediction on customer churn.
 - **Dockerization (10 Points):** Verify that the Docker image builds successfully and runs the model.
 - **CI/CD Pipeline (10 Points):** GitHub Actions workflow should automate the build and run process.
-- **Repository Structure (5 Points):** Follow the specified project structure with clear organization.
+
 
